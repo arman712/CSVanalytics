@@ -67,8 +67,26 @@ public class Util {
                 }
 
             } else {
-                resultList.add(resultProducts.get(i));
-                duplicateIdCount++;
+
+                boolean duplicate =false;
+                for (int j = 0; j <resultList.size() ; j++) {
+
+                    if(resultProducts.get(i).getId() == resultList.get(j).getId()){
+
+                        duplicate=true;
+                        break;
+                    }
+
+                }
+
+                if(duplicate){
+                    resultList.add(resultProducts.get(i));
+                    duplicateIdCount++;
+                } else {
+                    resultList.add(resultProducts.get(i));
+                }
+
+
 
             }
         }
